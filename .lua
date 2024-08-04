@@ -28,6 +28,10 @@ local batp = test:CreateButton("Esp", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Eazvy/UILibs/main/ESP/Seere/Example"))()
 end)
 
+local batp = test:CreateButton("Esp", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Aisen11394/Aimbot/main/.lua"))()
+end)
+
 local label = info:CreateLabel("KeyBind :","KeyBind to Close/Open the Gui Is 'Left Control'")
 
 local label = cred:CreateLabel("Interface :","Made by Trix#2794")
