@@ -1,42 +1,79 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Osmium/main/OsmiumLibrary.lua")
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
-local window = library:CreateWindow("Osmium UI Library")
+local win = DiscordLib:Window("Albar")
 
-local test = window:CreateTab("Main")
-local info = window:CreateTab("Info")
-local cred = window:CreateTab("Credits")
+local serv = win:Server("Preview", "")
 
-local dropdown = test:CreateDropdown("DropDown Exemple",{"Nami","Robin","Yamato"},function(val)
-	print(val)
+local btns = serv:Channel("Buttons")
+
+btns:Button("Kill all", function()
+DiscordLib:Notification("Notification", "Killed everyone!", "Okay!")
 end)
 
-local label = test:CreateLabel("This is a Title","this is an exemple of description")
+btns:Seperator()
 
-local sld = test:CreateSlider("Slider Exemple",-100,100,function(arg)
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = arg
+btns:Button("ESP", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Eazvy/UILibs/main/ESP/Seere/Example"))()
 end)
 
-test:CreateTextbox("TextBox Exemple", function(value)
-    print("Value = ", value)
-end, "Write Here")
-
-local toggle = test:CreateToggle("Toggle Exemple",false,function()
-    
+btns:Button("Aimbot", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Aisen11394/Aimbot/main/.lua"))()
 end)
 
-local batp = test:CreateButton("Esp", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Eazvy/UILibs/main/ESP/Seere/Example"))()
+local tgls = serv:Channel("Toggles")
+
+tgls:Toggle("Auto-Farm",false, function(bool)
+print(bool)
 end)
 
-local batp = test:CreateButton("Esp", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Aisen11394/Aimbot/main/.lua"))()
+local sldrs = serv:Channel("Sliders")
+
+local sldr = sldrs:Slider("Slide me!", 0, 1000, 400, function(t)
+print(t)
 end)
 
-local label = info:CreateLabel("KeyBind :","KeyBind to Close/Open the Gui Is 'Left Control'")
-
-local label = cred:CreateLabel("Interface :","Made by Trix#2794")
-local label = cred:CreateLabel("Interface Scripts :","Made by Trix#2794")
-local label = cred:CreateLabel("Scripting :","by Trix#2794 / JulMan#1234")
-local batp = cred:CreateButton("Copy Discord Server Link", function()
-    setclipboard("discord.gg/TT3y4gkJtq")
+sldrs:Button("Change to 50", function()
+sldr:Change(50)
 end)
+
+local drops = serv:Channel("Dropdowns")
+
+
+local drop = drops:Dropdown("Pick me!",{"Option 1","Option 2","Option 3","Option 4","Option 5"}, function(bool)
+print(bool)
+end)
+
+drops:Button("Clear", function()
+drop:Clear()
+end)
+
+drops:Button("Add option", function()
+drop:Add("Option")
+end)
+
+local clrs = serv:Channel("Colorpickers")
+
+clrs:Colorpicker("ESP Color", Color3.fromRGB(255,1,1), function(t)
+print(t)
+end)
+
+local textbs = serv:Channel("Textboxes")
+
+textbs:Textbox("Gun power", "Type here!", true, function(t)
+print(t)
+end)
+
+local lbls = serv:Channel("Labels")
+
+lbls:Label("This is just a label.")
+
+local bnds = serv:Channel("Binds")
+
+bnds:Bind("Kill bind", Enum.KeyCode.RightShift, function()
+print("Killed everyone!")
+end)
+
+serv:Channel("by dawid#7205")
+
+
+win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
